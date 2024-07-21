@@ -1,0 +1,33 @@
+{
+  "name": "taskflow",
+  "version": "1.0.0",
+  "description": "A CLI tool for managing JIRA issues and Git branches",
+  "main": "src/index.js",
+  "bin": {
+    "taskflow": "src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "jest",
+    "lint": "eslint",
+    "format": "prettier --write ."
+  },
+  "keywords": ["jira", "git", "cli", "project management", "taskflow"],
+  "author": "Jonathan Briggs",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "commander": "^12.1.0",
+    "dotenv": "^16.4.5",
+    "inquirer": "^10.0.4",
+    "simple-git": "^3.25.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.7.0",
+    "eslint": "^9.7.0",
+    "globals": "^15.8.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.3.3",
+    "typescript-eslint": "^7.16.1"
+  }
+}
