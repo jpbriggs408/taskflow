@@ -17,12 +17,6 @@ TaskFlow is a CLI tool for managing JIRA issues and Git branches, designed to st
 
 Local vs global configuration
 
-## Installation
-
-```bash
-npm install -g taskflow
-```
-
 ## Getting Started
 
 ### Prerequisites
@@ -69,7 +63,7 @@ npm install -g taskflow
     JIRA_EMAIL=jbriggs@etsy.com
     JIRA_API_TOKEN=not-telling-sorry
     JIRA_PROJECT_KEY=FRI
-    JIRA_ACCOUNT_ID=jbriggs
+    JIRA_ACCOUNT_ID=0123456789
     ```
 
 4. Link the package to use it globally:

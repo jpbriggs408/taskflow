@@ -12,8 +12,11 @@
     "build": "tsc --outDir dist",
     "dev": "ts-node --esm src/index.ts",
     "format": "prettier --write \"src/**/*.{js,ts}\"",
+    "link": "pnpm run build && npm link",
     "lint": "eslint",
     "lint:fix": "eslint . --ext .js,.ts --fix",
+    "prepare": "pnpm run build",
+    "prepack": "pnpm run build",
     "start": "node dist/index.js",
     "test": "jest",
     "type-check": "tsc --noEmit"
