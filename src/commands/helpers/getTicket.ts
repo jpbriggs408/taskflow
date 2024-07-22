@@ -1,34 +1,15 @@
-import axios from 'axios';
-import { TaskFlowConfig } from 'types/index.js';
+import { logger } from '../../utils/Logger.js';
+import { useApi } from '../../hooks/useApi.js';
+import JiraApi from 'jira-client';
 
-async function getTicket(
-  issueKey: string,
-  config: TaskFlowConfig,
-): Promise<{ summary: string; description: string }> {
+async function getTicket(issueKey: string, options?: string[]): Promise<JiraApi.JsonResponse> {
   try {
-    const response = await axios.get(
-      `${config.jiraUrl}/rest/api/3/issue/${issueKey}`,
-      {
-        auth: {
-          username: config.jiraEmail,
-          password: config.jiraApiToken,
-        },
-        headers: {
-          Accept: 'application/json',
-        },
-      },
-    );
+    const jira = useApi();
+    const response = await jira.getIssue(issueKey, options ?? 'summary');
 
-    const summary = response.data.fields.summary;
-    const description =
-      response.data.fields.description?.content[0]?.content[0]?.text || '';
-
-    return { summary, description };
+    return response.fields;
   } catch (error) {
-    console.error(
-      'Error fetching JIRA ticket details:',
-      (error as Error).message,
-    );
+    logger.error('Error fetching JIRA ticket details:', (error as Error).message);
     throw error;
   }
 }

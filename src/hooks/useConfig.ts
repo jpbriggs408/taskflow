@@ -12,7 +12,6 @@ const config = {
   jiraAccountId: process.env.JIRA_ACCOUNT_ID,
 };
 
-
 let cachedConfig: TaskFlowConfig | null = null;
 
 export function useConfig(): TaskFlowConfig {
@@ -25,11 +24,11 @@ export function useConfig(): TaskFlowConfig {
   });
 
   cachedConfig = {
-    jiraUrl: (config.jiraUrl ?? conf.get('jiraUrl') as string) || '',
-    jiraEmail: (config.jiraEmail ?? conf.get('jiraEmail') as string) || '',
-    jiraApiToken: (config.jiraApiToken ?? conf.get('jiraApiToken') as string) || '',
-    jiraProjectKey: (config.jiraProjectKey ?? conf.get('jiraProjectKey') as string) || '',
-    jiraAccountId: (config.jiraAccountId ?? conf.get('jiraAccountId') as string) || '',
+    jiraUrl: (config.jiraUrl ?? (conf.get('jiraUrl') as string)) || '',
+    jiraEmail: (config.jiraEmail ?? (conf.get('jiraEmail') as string)) || '',
+    jiraApiToken: (config.jiraApiToken ?? (conf.get('jiraApiToken') as string)) || '',
+    jiraProjectKey: (config.jiraProjectKey ?? (conf.get('jiraProjectKey') as string)) || '',
+    jiraAccountId: (config.jiraAccountId ?? (conf.get('jiraAccountId') as string)) || '',
   };
 
   return cachedConfig;
